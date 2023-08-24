@@ -1,7 +1,22 @@
-function CardArea() {
-  // const [count, setCount] = useState(0);
+import { useEffect, useState } from "react";
+import { fetchCards } from "../../models/api";
 
-  return <h1>CardArea</h1>;
+function CardArea() {
+  const [cards, setCards] = useState<Card[]>([]);
+
+  useEffect(() => {
+    fetchCards().then((dto) => setCards(dto));
+  }, [fetchCards]);
+
+  return (
+    <div>
+      {cards.map((card) => (
+        <div key={card.id}>
+          {card.front}, {card.back}
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default CardArea;
