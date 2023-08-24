@@ -3,8 +3,8 @@ import GameArea from "./GameArea";
 import CardArea from "./CardArea";
 
 function Content() {
-  const [mode, setMode] = useState<string>("game");
-
+  const [mode, setMode] = useState<string>("cards");
+  
   if (mode === "game") {
     return <GameArea />;
   } else if (mode === "cards") {
