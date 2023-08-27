@@ -1,7 +1,9 @@
+import {Header} from "./Navbar.styles.ts";
+
 function Navbar() {
   return (
     <div>
-      <h1>Navbar</h1>
+      <Header>Navbar</Header>
     </div>
   );
 }
