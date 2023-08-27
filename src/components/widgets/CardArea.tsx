@@ -39,8 +39,7 @@ function CardArea() {
                                 <TD>{card.back}</TD>
                                 <TD>
                                     <div>
-                                        <Button onClick={() => console.log(card.id)} buttonType={'edit'}
-                                                children={"Edit"}/>
+                                        <Button onClick={() => console.log(card.id)} buttonType={'edit'} children={'Edit'}/>
                                     </div>
                                 </TD>
                             </TR>

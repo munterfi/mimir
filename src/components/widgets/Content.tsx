@@ -1,17 +1,23 @@
-import { useState } from "react";
+import {useState} from "react";
 import GameArea from "./GameArea";
 import CardArea from "./CardArea";
+import Button from "../../controls/Button.tsx";
 
 function Content() {
-  const [mode, setMode] = useState<string>("cards");
-  
-  if (mode === "game") {
-    return <GameArea />;
-  } else if (mode === "cards") {
-    return <CardArea />;
-  } else {
-    return <h1>Invalid mode</h1>;
-  }
+    const [mode, setMode] = useState<string>("cards");
+
+    const toggleMode = () => {
+        setMode(prevMode => (prevMode === "game" ? "cards" : "game"));
+    };
+
+    return (
+        <div>
+            <Button
+                onClick={toggleMode} buttonType={'switch_view'}>Toggle View
+            </Button>
+            {mode === "game" ? <GameArea/> : <CardArea/>}
+        </div>
+    );
 }
 
 export default Content;
