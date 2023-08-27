@@ -8,6 +8,7 @@ function Content() {
 
     const toggleMode = () => {
         setMode(prevMode => (prevMode === "game" ? "cards" : "game"));
+        console.log(mode);
     };
 
     return (
