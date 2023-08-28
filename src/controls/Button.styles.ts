@@ -10,7 +10,7 @@ const Button = styled.button`
     color: black;   
   }
 `
-export const MegaButton = styled(Button)` 
+export const CustomButton = styled(Button)` 
   font-size: 15px;
 `
 

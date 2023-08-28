@@ -1,11 +1,11 @@
-import {MegaButton} from "./Button.styles.ts";
+import {CustomButton} from "./Button.styles.ts";
 import {ButtonProps} from "../interfaces/ButtonProps.ts";
 
 function Button(props: ButtonProps) {
     return (
-        <MegaButton onClick={props.onClick} className={`toggle-button ${props.buttonType}`}>
+        <CustomButton onClick={props.onClick} className={`toggle-button ${props.buttonType}`}>
             {props.children}
-        </MegaButton>
+        </CustomButton>
     );
 
 }
