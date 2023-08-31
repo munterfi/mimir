@@ -1,9 +1,13 @@
+import {Header} from "./Navbar.styles.ts";
+import headerImage from "../../assets/rocket.svg";
+
 function Navbar() {
-  return (
-    <div>
-      <h1>Navbar</h1>
-    </div>
-  );
+    return (
+        <div>
+            <Header>Navbar
+                <img src={headerImage} alt="headerImage"/></Header>
+        </div>
+    );
 }
 
 export default Navbar;

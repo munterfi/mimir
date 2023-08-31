@@ -1,14 +1,13 @@
-import { useEffect, useState } from "react";
 import Content from "../widgets/Content";
 import Navbar from "../widgets/Navbar";
 
 function App() {
-  return (
-    <div>
-      <Navbar />
-      <Content />
-    </div>
-  );
+    return (
+        <div>
+            <Navbar/>
+            <Content/>
+        </div>
+    );
 }
 
 export default App;
