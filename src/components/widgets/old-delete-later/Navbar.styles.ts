@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {RowProps}  from '../../interfaces/RowProps'
+import {RowProps}  from '../../../interfaces/RowProps.ts'
 export const Header = styled.table`
   background: #0d0d0d;
   color: #fff;

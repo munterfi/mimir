@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {fetchCards} from "../../models/Api.ts";
 import {Container, Table, TD, TH, THead, TR} from "./CardArea.styles.ts";
-import Button from "../../controls/Button.tsx";
 import {Card} from "../../interfaces/Card.ts";
+import {Link} from "react-router-dom";
 
 
 function CardArea() {
@@ -40,7 +40,9 @@ function CardArea() {
                                 <TD>{card.back}</TD>
                                 <TD>
                                     <div>
-                                        <Button onClick={() => console.log(card.id)} children={'Edit'}/>
+                                        <Link key={card.id} to={`/edit/${card.id}`}>
+                                            {card.id}
+                                        </Link>
                                     </div>
                                 </TD>
                             </TR>
