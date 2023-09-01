@@ -1,4 +1,4 @@
-interface Game {
+export interface Game {
     front: string;
     cardCount: number;
     solved: Result[];

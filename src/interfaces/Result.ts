@@ -1,4 +1,4 @@
-interface Result {
+export interface Result {
     id: string;
     front: string;
     back: string;

@@ -1,11 +1,17 @@
-import {CustomButton} from "./Button.styles.ts";
-import {ButtonProps} from "../interfaces/ButtonProps.ts";
+import {ToggleViewButton} from "./Button.styles.ts";
+import React from "react";
+
+export interface ButtonProps {
+    onClick: () => void;
+    buttonColor?: string;
+    children: React.ReactNode;
+}
 
 function Button(props: ButtonProps) {
     return (
-        <CustomButton onClick={props.onClick} className={`toggle-button ${props.buttonType}`}>
+        <ToggleViewButton onClick={props.onClick} color={props.buttonColor}>
             {props.children}
-        </CustomButton>
+        </ToggleViewButton>
     );
 
 }

@@ -14,7 +14,7 @@ function Content() {
     return (
         <div>
             <Button
-                onClick={toggleMode} buttonType={'switch_view'}>Toggle View
+                onClick={toggleMode}>Toggle View
             </Button>
             {mode === "game" ? <GameArea/> : <CardArea/>}
         </div>
