@@ -4,7 +4,7 @@ export const Header = styled.table`
   background: #0d0d0d;
   color: #fff;
   width: 100%;
-  font-size: 4em;
+  font-size: 2em;
   display: flex;
   align-items: center;
   justify-content: center;

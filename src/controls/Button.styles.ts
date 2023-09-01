@@ -16,7 +16,11 @@ export const CustomButton = styled(Button)`
 
 interface ButtonProps {
     color?: string;
+    background?: string;
+    border?: string;
 }
 export const ToggleViewButton = styled.button<ButtonProps>`
   color: ${p => p.color};
+  background: ${p => p.background};
+  border: ${p => p.border};
 `;
