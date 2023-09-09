@@ -19,6 +19,7 @@ export const CardEdit = () => {
     <div>
       <Heading>Edit Card</Heading>
       <CardEditor
+        // TODO: Fix the initial values passed into CardEditor. Somehow useState does not work and card is undefined...
         cardId={card?.id ?? ""}
         initFront={card?.front ?? ""}
         initBack={card?.back ?? ""}
