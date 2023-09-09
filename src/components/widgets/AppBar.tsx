@@ -12,7 +12,7 @@ export function AppBar() {
             <Link to="/">Home</Link>
             </Column>
             <Column textAlign={'right'}>
-            <Link to="/api/cards">Cards</Link>
+            <Link to="/cards">Cards</Link>
             </Column>
         </Bar>
     )

@@ -40,7 +40,7 @@ function CardArea() {
                                 <TD>{card.back}</TD>
                                 <TD>
                                     <div>
-                                        <Link key={card.id} to={`/edit/${card.id}`}>
+                                        <Link key={card.id} to={`/cards/${card.id}`}>
                                             {card.id}
                                         </Link>
                                     </div>

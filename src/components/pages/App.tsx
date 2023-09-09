@@ -14,8 +14,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Layout />}>
                 <Route index element={<GameArea />} />
-                <Route path={"/api/cards"} element={<CardArea />} />
-                <Route path="edit" element={<Edit />}>
+                <Route path={"/cards"} element={<CardArea />} >
                     <Route path=":id" element={<Card />} />
                 </Route>
             </Route>
