@@ -25,3 +25,13 @@ export const addCard = async (cardData: Card): Promise<Card> => {
     }
     throw new Error("Failed to add a new card");
 };
+
+// delete Card
+export const deleteCard = async (id: string): Promise<void> => {
+    const response = await fetch(`/api/cards/${id}`, {
+        method: "DELETE",
+    });
+    if (!response.ok) {
+        throw new Error("Failed to delete the card");
+    }
+};
