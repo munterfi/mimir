@@ -11,7 +11,8 @@ export const GameResults = ({ results }: Props) => {
     <List>
       {results.map(result => (
         <div key={result.id}>
-          {result.front} - {result.back} - {result.answer} - {result.accepted}
+          {result.front} - {result.back} - {result.answer} -{' '}
+          {result.accepted ? '✓' : '✗'}
         </div>
       ))}
     </List>
