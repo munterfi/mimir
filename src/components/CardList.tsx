@@ -1,21 +1,27 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import { fetchCards } from "../api/cards";
+import { AppContext } from "../store/context";
 import { CardEditor } from "./CardEditor";
 import { CardEntry } from "./CardEntry";
 import { Main } from "./Main";
 
 export const CardList = () => {
-  const [cards, setCards] = useState<Card[]>([]);
+  const { cards, dispatch } = useContext(AppContext);
 
   useEffect(() => {
-    fetchCards().then(setCards);
+    const onMount = async () => {
+      const cards = await fetchCards();
+      dispatch({ type: "set-cards", cards });
+    };
+    onMount();
   }, []);
+
   return (
     <div>
       <Heading>Add Card</Heading>
-      <CardEditor cardId="" initFront="" initBack="" editorType="add" />
+      <CardEditor id="" back="" front="" type="add" />
       <List>
         {cards.map((card) => (
           <CardEntry key={card.id} card={card} />
