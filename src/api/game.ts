@@ -1,22 +1,35 @@
-import { Game } from "../models/Game";
-import { apiRequest } from "./utils";
+import { Game } from '../models/Game'
+import { apiRequest } from './utils'
 
-const apiUrl = "/api/game";
+const apiUrl = '/api/game'
 
 export const fetchGame = (): Promise<Game> => {
-  return apiRequest<Game>(apiUrl, {});
-};
+  return apiRequest<Game>(apiUrl, {})
+}
 
 export const startNewGame = (): Promise<Game> => {
-  return apiRequest<Game>(apiUrl, {});
-  // TODO
-};
+  const options: RequestInit = {
+    method: 'POST',
+  }
+  return apiRequest<Game>(apiUrl, options)
+}
 
-export const setAnswer = (): Promise<Game> => {
-  return apiRequest<Game>(apiUrl, {});
-  // TODO
-};
+export const setAnswer = (answer: string): Promise<Game> => {
+  const options: RequestInit = {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      answer: answer,
+    }),
+  }
+  return apiRequest<Game>(apiUrl, options)
+}
 
 export const deleteGame = (): void => {
-  // TODO
-};
+  const options: RequestInit = {
+    method: 'DELETE',
+  }
+  fetch(apiUrl, options)
+}

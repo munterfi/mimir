@@ -1,5 +1,5 @@
 export interface Card {
-  id: string;
-  front: string;
-  back: string;
+  id: string
+  front: string
+  back: string
 }

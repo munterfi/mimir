@@ -1,7 +1,7 @@
-import { Card } from "./Card";
-import { Game } from "./Game";
+import { Card } from './Card'
+import { Game } from './Game'
 
 export interface ApiState {
-  cards: Card[];
-  game?: Game;
+  cards: Card[]
+  game?: Game
 }

@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom'
-import { Game } from './Game'
+import { Game } from './game/Game'
 import { Layout } from './Layout'
-import { CardEdit } from './CardEdit'
-import { Cards } from './Cards'
-import { CardList } from './CardList'
+import { CardEdit } from './cards/CardEdit'
+import { Cards } from './cards/Cards'
+import { CardList } from './cards/CardList'
 
 export default function App() {
   return (

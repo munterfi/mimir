@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components'
-import { AppContext } from '../store/context'
+import { AppContext } from '../../store/context'
 import { CardEditor } from './CardEditor'
 
 export const CardEdit = () => {

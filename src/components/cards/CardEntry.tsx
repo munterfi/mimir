@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { styled } from "styled-components";
-import { deleteCard } from "../api/cards";
-import { Card } from "../models/Card";
-import { AppContext } from "../store/context";
-import { Main } from "./Main";
+import { deleteCard } from "../../api/cards";
+import { Card } from "../../models/Card";
+import { AppContext } from "../../store/context";
+import { Main } from "../Main";
 
 interface Props {
   card: Card;

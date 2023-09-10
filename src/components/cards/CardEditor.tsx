@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
-import { addCard, fetchCards, updateCard } from '../api/cards'
-import { Card } from '../models/Card'
-import { AppContext } from '../store/context'
+import { addCard, fetchCards, updateCard } from '../../api/cards'
+import { Card } from '../../models/Card'
+import { AppContext } from '../../store/context'
 
 interface Props {
   id: string
