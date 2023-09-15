@@ -1,26 +1,44 @@
-import { styled } from 'styled-components'
-import { Result } from '../../models/Result'
-import { Main } from '../Main'
+import {styled} from 'styled-components'
+import {Result} from '../../models/Result'
 
 interface Props {
-  results: Result[]
+    results: Result[]
 }
 
-export const GameResults = ({ results }: Props) => {
-  return (
-    <List>
-      {results.map(result => (
-        <div key={result.id}>
-          {result.front} - {result.back} - {result.answer} -{' '}
-          {result.accepted ? '✓' : '✗'}
+export const GameResults = ({results}: Props) => {
+    return (
+        <div>
+            <THead>
+                <tr>
+                    <th>Front</th>
+                    <th>Back</th>
+                    <th>Answer</th>
+                    <th>Accepted</th>
+                </tr>
+            </THead>
+            {results.map(result => (
+                <TR key={result.id}>
+                    <TD>{result.front}</TD>
+                    <TD>{result.back}</TD>
+                    <TD>{result.answer}</TD>
+                    <TD>{result.accepted ? '✅' : '❌'}</TD>
+                </TR>
+            ))}
         </div>
-      ))}
-    </List>
-  )
+    )
 }
 
-const List = styled(Main)`
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-`
+
+const TD = styled.td`
+  padding: 10px 30px;
+`;
+
+const TR = styled.tr`
+  &:nth-of-type(2n) {
+    background-color: #ddd;
+  }
+`;
+
+const THead = styled.thead`
+  border-bottom: 3px solid black;
+`;

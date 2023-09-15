@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, ChangeEvent } from 'react'
 import { addCard, fetchCards, updateCard } from '../../api/cards'
 import { Card } from '../../models/Card'
 import { AppContext } from '../../store/context'
@@ -17,9 +17,9 @@ export const CardEditor = ({ id, front, back, type }: Props) => {
   const [inputBack, setInputBack] = useState(back)
   const [warning, setWarning] = useState('')
 
-  const handleInputFront = (e: React.ChangeEvent<HTMLInputElement>) =>
+  const handleInputFront = (e: ChangeEvent<HTMLInputElement>) =>
     setInputFront(e.target.value)
-  const handleInputBack = (e: React.ChangeEvent<HTMLInputElement>) =>
+  const handleInputBack = (e: ChangeEvent<HTMLInputElement>) =>
     setInputBack(e.target.value)
 
   const handleButtonClick = () => {
