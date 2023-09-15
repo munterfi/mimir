@@ -2,6 +2,7 @@ import {Game} from '../../models/Game'
 import {GameResults} from './GameResults'
 import {NewGameButton} from './NewGameButton'
 import styled from "styled-components";
+import {Table} from "../table.styles.ts";
 
 interface Props {
     game?: Game
@@ -34,10 +35,6 @@ const Container = styled.div`
   margin: 0 auto;
   gap: 10px;
 `
-
-const Table = styled.table`
-  border-collapse: collapse;
-`;
 
 const Result = styled.div`
   display: flex;

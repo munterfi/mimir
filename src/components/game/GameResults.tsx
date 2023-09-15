@@ -1,5 +1,5 @@
-import {styled} from 'styled-components'
 import {Result} from '../../models/Result'
+import {TD, THead, TR} from "../table.styles.ts";
 
 interface Props {
     results: Result[]
@@ -29,16 +29,3 @@ export const GameResults = ({results}: Props) => {
 }
 
 
-const TD = styled.td`
-  padding: 10px 30px;
-`;
-
-const TR = styled.tr`
-  &:nth-of-type(2n) {
-    background-color: #ddd;
-  }
-`;
-
-const THead = styled.thead`
-  border-bottom: 3px solid black;
-`;

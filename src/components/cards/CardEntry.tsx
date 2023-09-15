@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { styled } from "styled-components";
 import { deleteCard } from "../../api/cards";
 import { Card } from "../../models/Card";
 import { AppContext } from "../../store/context";
-import { Main } from "../Main";
+import {TD, TR} from "../table.styles.ts";
 
 interface Props {
   card: Card;
@@ -23,17 +22,12 @@ export const CardEntry = ({ card }: Props) => {
   };
 
   return (
-    <Row>
-      <div>{card.front}</div>
-      <div>{card.back}</div>
+    <TR>
+      <TD>{card.front}</TD>
+      <TD>{card.back}</TD>
       <button onClick={handleEdit}>{"Edit"}</button>
       <button onClick={handleDelete}>{"Delete"}</button>
-    </Row>
+    </TR>
   );
 };
 
-const Row = styled(Main)`
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-`;
