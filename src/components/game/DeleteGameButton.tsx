@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { deleteGame } from '../../api/game'
 import { AppContext } from '../../store/context'
+import {CustomButton} from "./Button.style.ts";
 
 export const DeleteGameButton = () => {
   const { dispatch } = useContext(AppContext)
@@ -9,5 +10,5 @@ export const DeleteGameButton = () => {
     deleteGame()
     dispatch({ type: 'remove-game' })
   }
-  return <button onClick={handleButtonClick}>Delete Game</button>
+  return <CustomButton onClick={handleButtonClick}>Delete Game</CustomButton>
 }

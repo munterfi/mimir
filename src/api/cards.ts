@@ -22,7 +22,6 @@ export const addCard = (front: string, back: string): Promise<Card> => {
 }
 
 export const updateCard = (card: Card): Promise<Card> => {
-  console.log('Updating card: ', JSON.stringify(card))
   const options: RequestInit = {
     method: 'PUT',
     headers: {

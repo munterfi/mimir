@@ -4,36 +4,41 @@ import { styled } from "styled-components";
 import { deleteCard } from "../../api/cards";
 import { Card } from "../../models/Card";
 import { AppContext } from "../../store/context";
-import { Main } from "../Main";
+import {CustomButton} from "../game/Button.style.ts";
 
 interface Props {
-  card: Card;
+    card: Card;
 }
 
 export const CardEntry = ({ card }: Props) => {
-  const { dispatch } = useContext(AppContext);
-  const navigate = useNavigate();
+    const { dispatch } = useContext(AppContext);
+    const navigate = useNavigate();
 
-  const handleEdit = () => {
-    navigate(`${card.id}`);
-  };
-  const handleDelete = () => {
-    deleteCard(card.id);
-    dispatch({ type: "remove-card", id: card.id });
-  };
+    const handleEdit = () => {
+        navigate(`${card.id}`);
+    };
+    const handleDelete = () => {
+        deleteCard(card.id);
+        dispatch({ type: "remove-card", id: card.id });
+    };
 
-  return (
-    <Row>
-      <div>{card.front}</div>
-      <div>{card.back}</div>
-      <button onClick={handleEdit}>{"Edit"}</button>
-      <button onClick={handleDelete}>{"Delete"}</button>
-    </Row>
-  );
+    return (
+        <Row>
+            <Text>{card.front}</Text>
+            <Text>{card.back}</Text>
+            <CustomButton onClick={handleEdit}>{"Edit"}</CustomButton>
+            <CustomButton onClick={handleDelete}>{"Delete"}</CustomButton>
+        </Row>
+    );
 };
 
-const Row = styled(Main)`
-  display: flex;
+const Row = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr;
   flex-direction: row;
   gap: 10px;
 `;
+
+const Text = styled.div`
+    align-self: center;
+`

@@ -17,4 +17,5 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: auto 1fr auto;
   height: 100%;
+  gap: 20px;
 `
