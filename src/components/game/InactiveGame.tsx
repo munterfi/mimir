@@ -2,7 +2,6 @@ import {Game} from '../../models/Game'
 import {GameResults} from './GameResults'
 import {NewGameButton} from './NewGameButton'
 import styled from "styled-components";
-import {Table} from "../table.styles.ts";
 
 interface Props {
     game?: Game
@@ -12,7 +11,6 @@ export const InactiveGame = ({game}: Props) => {
     return (
         <Container>
             <NewGameButton/>
-            <Table>
                 {game ? (
                     <Result>
                         Solved {game.solved.filter(result => result.accepted).length} out of{' '}
@@ -22,11 +20,13 @@ export const InactiveGame = ({game}: Props) => {
                     <NoGame>Sorry, no Game Running.</NoGame>
                 )}
                 {game && <GameResults results={game.solved}/>}
-            </Table>
         </Container>
 
     )
 }
+
+
+
 
 const Container = styled.div`
   display: flex;

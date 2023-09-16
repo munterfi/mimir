@@ -2,11 +2,9 @@ import {useContext} from 'react'
 import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {AppContext} from '../store/context'
-import {startNewGame} from "../api/game.ts";
-import {CustomButton, DisabledDiv} from "./game/Button.style.ts";
 
 export function AppBar() {
-    const {game, dispatch} = useContext(AppContext)
+    const {game} = useContext(AppContext)
 
     const statusText = game
         ? game.solved.length === game.cardCount
@@ -14,20 +12,11 @@ export function AppBar() {
             : `Solve #${game.solved.length + 1}`
         : 'New Game'
 
-    const handleButtonClick = () => {
-        if (statusText === 'New Game') {
-            startNewGame().then(newGame =>
-                dispatch({type: 'set-game', game: newGame})
-            )
-        }
-    }
-
     return (
         <Bar>
             <Column textAlign={'left'}>Mimir</Column>
             <Column textAlign={'center'}>
-                {statusText === 'New Game' ? <CustomButton onClick={handleButtonClick}>{statusText}</CustomButton> :
-                    <DisabledDiv>{statusText}</DisabledDiv>}
+                <ManageCardsLink to="/">{statusText}</ManageCardsLink>
             </Column>
             <Column textAlign={'right'}>
                 <ManageCardsLink to="/cards">Manage Cards</ManageCardsLink>
@@ -57,6 +46,10 @@ const ManageCardsLink = styled(Link)`
   border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+
+  &:hover {
+    color: #73888f;
+  }
 `;
 
 export interface RowProps {

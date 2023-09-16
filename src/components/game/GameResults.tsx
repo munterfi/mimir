@@ -1,5 +1,5 @@
 import {Result} from '../../models/Result'
-import {TD, THead, TR} from "../table.styles.ts";
+import styled from "styled-components";
 
 interface Props {
     results: Result[]
@@ -7,7 +7,7 @@ interface Props {
 
 export const GameResults = ({results}: Props) => {
     return (
-        <div>
+        <Table>
             <THead>
                 <tr>
                     <th>Front</th>
@@ -24,8 +24,25 @@ export const GameResults = ({results}: Props) => {
                     <TD>{result.accepted ? '✅' : '❌'}</TD>
                 </TR>
             ))}
-        </div>
+        </Table>
     )
 }
 
 
+const Table = styled.table`
+  border-collapse: collapse;
+`;
+
+const TD = styled.td`
+  padding: 10px 30px;
+`;
+
+const TR = styled.tr`
+  &:nth-of-type(2n) {
+    background-color: #ddd;
+  }
+`;
+
+const THead = styled.thead`
+  border-bottom: 3px solid black;
+`;

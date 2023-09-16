@@ -1,19 +1,18 @@
-import {useContext, useEffect} from 'react'
-import {Outlet} from 'react-router-dom'
+import { useContext, useEffect } from 'react'
+import { Outlet } from 'react-router-dom'
 import styled from 'styled-components'
-import {fetchCards} from '../../api/cards'
-import {AppContext} from '../../store/context'
-import {CardEditor} from './CardEditor'
-import {CardEntry} from './CardEntry'
-import {Table} from "../table.styles.ts";
+import { fetchCards } from '../../api/cards'
+import { AppContext } from '../../store/context'
+import { CardEditor } from './CardEditor'
+import { CardEntry } from './CardEntry'
 
 export const CardList = () => {
-    const {cards, dispatch} = useContext(AppContext)
+    const { cards, dispatch } = useContext(AppContext)
 
     useEffect(() => {
         const onMount = async () => {
             const cards = await fetchCards()
-            dispatch({type: 'set-cards', cards})
+            dispatch({ type: 'set-cards', cards })
         }
         onMount()
     }, [dispatch])
@@ -21,17 +20,22 @@ export const CardList = () => {
     return (
         <div>
             <Heading>Add Card</Heading>
-            <CardEditor id="" back="" front="" type="add"/>
-            <Table>
+            <CardEditor id="" back="" front="" type="add" />
+            <List>
                 {cards.map(card => (
-                    <CardEntry key={card.id} card={card}/>
+                    <CardEntry key={card.id} card={card} />
                 ))}
-                <Outlet/>
-            </Table>
+                <Outlet />
+            </List>
         </div>
     )
 }
 
+const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`
 
 const Heading = styled.div`
   margin: 40px 0 20px 0;
