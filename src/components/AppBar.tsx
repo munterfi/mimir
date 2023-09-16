@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom'
 import styled from 'styled-components'
 import {AppContext} from '../store/context'
 
+
 export function AppBar() {
     const {game} = useContext(AppContext)
 
@@ -14,7 +15,7 @@ export function AppBar() {
 
     return (
         <Bar>
-            <Column textAlign={'left'}>Mimir</Column>
+            <Column textAlign={'left'}>Mimir alt</Column>
             <Column textAlign={'center'}>
                 <ManageCardsLink to="/">{statusText}</ManageCardsLink>
             </Column>
