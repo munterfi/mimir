@@ -1,27 +1,27 @@
 import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components'
 import { AppContext } from '../../store/context'
 import { CardEditor } from './CardEditor'
+import styled from "styled-components";
 
 export const CardEdit = () => {
   const { id } = useParams<{ id: string }>()
   const { cards } = useContext(AppContext)
   const card = cards.find(c => c.id === id)
   return (
-    <div>
-      <Heading>Edit Card</Heading>
+    <EditContainer>
       <CardEditor
         id={card?.id ?? ''}
         front={card?.front ?? ''}
         back={card?.back ?? ''}
         type="update"
       />
-    </div>
+    </EditContainer>
   )
 }
 
-const Heading = styled.div`
-  margin: 40px 0 20px 0;
-  font-weight: 600;
+const EditContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

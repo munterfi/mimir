@@ -4,6 +4,7 @@ import {DeleteGameButton} from './DeleteGameButton'
 import {setAnswer} from '../../api/game'
 import {CustomButton} from "./Button.style.ts";
 import styled from "styled-components";
+import {TextInput} from "./Input.styles.ts";
 
 export const ActiveGame = () => {
     const {game, dispatch} = useContext(AppContext)
@@ -34,7 +35,7 @@ export const ActiveGame = () => {
             <GameCardContent>
                 <Card>{cardFront}</Card>
                <div>
-                   <Input value={input} onChange={handleInputChange} type="text"/>
+                   <TextInput value={input} onChange={handleInputChange} type="text"/>
                    <CustomButton onClick={handleSubmitButton}>Submit</CustomButton>
                </div>
             </GameCardContent>
@@ -42,12 +43,6 @@ export const ActiveGame = () => {
     )
 }
 
-const Input = styled.input`
-  border: none;
-  border-bottom: 2px solid lightblue;
-  font-size: 20px;
-  margin: 10px;
-`
 
 const Card = styled.div`
   font-family: sans-serif;

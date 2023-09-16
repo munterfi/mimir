@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { deleteCard } from "../../api/cards";
 import { Card } from "../../models/Card";
 import { AppContext } from "../../store/context";
+import {CustomButton} from "../game/Button.style.ts";
 
 interface Props {
     card: Card;
@@ -23,16 +24,21 @@ export const CardEntry = ({ card }: Props) => {
 
     return (
         <Row>
-            <div>{card.front}</div>
-            <div>{card.back}</div>
-            <button onClick={handleEdit}>{"Edit"}</button>
-            <button onClick={handleDelete}>{"Delete"}</button>
+            <Text>{card.front}</Text>
+            <Text>{card.back}</Text>
+            <CustomButton onClick={handleEdit}>{"Edit"}</CustomButton>
+            <CustomButton onClick={handleDelete}>{"Delete"}</CustomButton>
         </Row>
     );
 };
 
 const Row = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 1fr;
   flex-direction: row;
   gap: 10px;
 `;
+
+const Text = styled.div`
+    align-self: center;
+`

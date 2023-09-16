@@ -18,8 +18,7 @@ export const CardList = () => {
     }, [dispatch])
 
     return (
-        <div>
-            <Heading>Add Card</Heading>
+        <CardListContainer>
             <CardEditor id="" back="" front="" type="add" />
             <List>
                 {cards.map(card => (
@@ -27,7 +26,7 @@ export const CardList = () => {
                 ))}
                 <Outlet />
             </List>
-        </div>
+        </CardListContainer>
     )
 }
 
@@ -35,9 +34,11 @@ const List = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 40px 40px;
 `
 
-const Heading = styled.div`
-  margin: 40px 0 20px 0;
-  font-weight: 600;
+const CardListContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `

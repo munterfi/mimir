@@ -3,6 +3,8 @@ import {addCard, fetchCards, updateCard} from '../../api/cards'
 import {Card} from '../../models/Card'
 import {AppContext} from '../../store/context'
 import {useNavigate} from "react-router-dom";
+import {CustomButton} from "../game/Button.style.ts";
+import {TextInput} from "../game/Input.styles.ts";
 
 interface Props {
     id: string
@@ -45,9 +47,9 @@ export const CardEditor = ({id, front, back, type}: Props) => {
 
     return (
         <div>
-            <input value={inputFront} onChange={handleInputFront} type="text"/>
-            <input value={inputBack} onChange={handleInputBack} type="text"/>
-            <button onClick={handleButtonClick}>{isAdd ? 'Add' : 'Update'}</button>
+            <TextInput value={inputFront} onChange={handleInputFront} type="text"/>
+            <TextInput value={inputBack} onChange={handleInputBack} type="text"/>
+            <CustomButton onClick={handleButtonClick}>{isAdd ? 'Add' : 'Update'}</CustomButton>
             <div>{warning}</div>
         </div>
     )
