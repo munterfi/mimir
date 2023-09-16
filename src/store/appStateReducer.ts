@@ -6,34 +6,34 @@ export function appStateReducer(state: ApiState, action: Action): ApiState {
     case 'set-cards':
       return {
         ...state,
-        cards: action.cards,
+        cards: action.cards
       }
     case 'update-card':
       return {
         ...state,
         cards: state.cards.map(card =>
           card.id !== action.card.id ? card : action.card
-        ),
+        )
       }
     case 'remove-card':
       return {
         ...state,
-        cards: state.cards.filter(card => card.id !== action.id),
+        cards: state.cards.filter(card => card.id !== action.id)
       }
     case 'set-game':
       return {
         ...state,
-        game: action.game,
+        game: action.game
       }
     case 'remove-game':
       return {
         ...state,
-        game: undefined,
+        game: undefined
       }
   }
 }
 
 export const initialApiState: ApiState = {
   cards: [],
-  game: undefined,
+  game: undefined
 }

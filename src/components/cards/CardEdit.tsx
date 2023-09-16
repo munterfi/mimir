@@ -2,7 +2,7 @@ import { useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { AppContext } from '../../store/context'
 import { CardEditor } from './CardEditor'
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const CardEdit = () => {
   const { id } = useParams<{ id: string }>()
@@ -14,7 +14,7 @@ export const CardEdit = () => {
         id={card?.id ?? ''}
         front={card?.front ?? ''}
         back={card?.back ?? ''}
-        type="update"
+        type='update'
       />
     </EditContainer>
   )

@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-const Button = styled.button`
+export const CustomButton = styled.button`
   text-decoration: none;
   padding: 5px 20px;
   background-color: #6f9ccc;
@@ -13,12 +13,7 @@ const Button = styled.button`
   &:hover {
     background-color: #0056b3;
   }
-`
-export const CustomButton = styled(Button)`
+
   font-size: 15px;
   margin: 10px;
-`
-
-export const DisabledDiv = styled.div`
-  color: white;
 `

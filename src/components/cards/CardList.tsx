@@ -7,27 +7,27 @@ import { CardEditor } from './CardEditor'
 import { CardEntry } from './CardEntry'
 
 export const CardList = () => {
-    const { cards, dispatch } = useContext(AppContext)
+  const { cards, dispatch } = useContext(AppContext)
 
-    useEffect(() => {
-        const onMount = async () => {
-            const cards = await fetchCards()
-            dispatch({ type: 'set-cards', cards })
-        }
-        onMount()
-    }, [dispatch])
+  useEffect(() => {
+    const onMount = async () => {
+      const cards = await fetchCards()
+      dispatch({ type: 'set-cards', cards })
+    }
+    onMount()
+  }, [dispatch])
 
-    return (
-        <CardListContainer>
-            <CardEditor id="" back="" front="" type="add" />
-            <List>
-                {cards.map(card => (
-                    <CardEntry key={card.id} card={card} />
-                ))}
-                <Outlet />
-            </List>
-        </CardListContainer>
-    )
+  return (
+    <CardListContainer>
+      <CardEditor id='' back='' front='' type='add' />
+      <List>
+        {cards.map(card => (
+          <CardEntry key={card.id} card={card} />
+        ))}
+        <Outlet />
+      </List>
+    </CardListContainer>
+  )
 }
 
 const List = styled.div`

@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { deleteGame, startNewGame } from '../../api/game'
 import { AppContext } from '../../store/context'
-import {CustomButton} from "./Button.style.ts";
+import { CustomButton } from '../../styles/CustomButton.ts'
 
 export const NewGameButton = () => {
   const { game, dispatch } = useContext(AppContext)

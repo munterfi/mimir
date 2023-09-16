@@ -8,11 +8,11 @@ import { CardList } from './cards/CardList'
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
+      <Route path='/' element={<Layout />}>
         <Route index element={<Game />} />
-        <Route path="cards" element={<Cards />}>
+        <Route path='cards' element={<Cards />}>
           <Route index element={<CardList />} />
-          <Route path=":id" element={<CardEdit />} />
+          <Route path=':id' element={<CardEdit />} />
         </Route>
       </Route>
     </Routes>

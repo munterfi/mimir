@@ -9,7 +9,7 @@ export const fetchGame = (): Promise<Game> => {
 
 export const startNewGame = (): Promise<Game> => {
   const options: RequestInit = {
-    method: 'POST',
+    method: 'POST'
   }
   return apiRequest<Game>(apiUrl, options)
 }
@@ -18,18 +18,18 @@ export const setAnswer = (answer: string): Promise<Game> => {
   const options: RequestInit = {
     method: 'PATCH',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      answer: answer,
-    }),
+      answer: answer
+    })
   }
   return apiRequest<Game>(apiUrl, options)
 }
 
 export const deleteGame = (): void => {
   const options: RequestInit = {
-    method: 'DELETE',
+    method: 'DELETE'
   }
   fetch(apiUrl, options)
 }

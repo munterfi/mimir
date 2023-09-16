@@ -1,46 +1,52 @@
-import {ChangeEvent, useContext, useState} from 'react'
-import {AppContext} from '../../store/context'
-import {DeleteGameButton} from './DeleteGameButton'
-import {setAnswer} from '../../api/game'
-import {CustomButton} from "./Button.style.ts";
-import styled from "styled-components";
-import {TextInput} from "./Input.styles.ts";
+import { ChangeEvent, useContext, useState } from 'react'
+import { AppContext } from '../../store/context'
+import { DeleteGameButton } from './DeleteGameButton'
+import { setAnswer } from '../../api/game'
+import { CustomButton } from '../../styles/CustomButton.ts'
+import styled from 'styled-components'
+import { TextInput } from '../../styles/TextInput.ts'
 
 export const ActiveGame = () => {
-    const {game, dispatch} = useContext(AppContext)
-    const [input, setInput] = useState('')
+  const { game, dispatch } = useContext(AppContext)
+  const [input, setInput] = useState('')
+  const [warning, setWarning] = useState(false)
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        setInput(e.target.value)
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value)
+    setWarning(false)
+  }
+
+  const handleSubmitButton = () => {
+    if (input.trim() === '') {
+      setWarning(true)
+      return
     }
+    setAnswer(input).then(updatedGame => {
+      dispatch({ type: 'set-game', game: updatedGame })
+    })
+    setInput('')
+  }
 
-    const handleSubmitButton = () => {
-        setAnswer(input).then(updatedGame => {
-            dispatch({type: 'set-game', game: updatedGame})
-        })
-        setInput('')
-    }
+  const progress = game
+    ? `${Math.round((game.solved.length / game.cardCount) * 100)}%`
+    : 'N/A'
+  const cardFront = game ? game.front : 'N/A'
 
-    const progress = game
-        ? `${Math.round((game.solved.length / game.cardCount) * 100)}%`
-        : 'N/A'
-    const cardFront = game ? game.front : 'N/A'
-
-    return (
+  return (
+    <div>
+      <GameBar>
+        <div>Progress {progress}</div>
+        <DeleteGameButton />
+      </GameBar>
+      <GameCardContent>
+        <Card>{cardFront}</Card>
         <div>
-            <GameBar>
-                <div>Progress {progress}</div>
-                <DeleteGameButton/>
-            </GameBar>
-            <GameCardContent>
-                <Card>{cardFront}</Card>
-               <div>
-                   <TextInput value={input} onChange={handleInputChange} type="text"/>
-                   <CustomButton onClick={handleSubmitButton}>Submit</CustomButton>
-               </div>
-            </GameCardContent>
+          <TextInput value={input} onChange={handleInputChange} type='text' warning={warning} />
+          <CustomButton onClick={handleSubmitButton}>Submit</CustomButton>
         </div>
-    )
+      </GameCardContent>
+    </div>
+  )
 }
 
 

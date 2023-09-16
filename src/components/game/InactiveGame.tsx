@@ -1,30 +1,30 @@
-import {Game} from '../../models/Game'
-import {GameResults} from './GameResults'
-import {NewGameButton} from './NewGameButton'
-import styled from "styled-components";
+import { Game } from '../../models/Game'
+import { GameResults } from './GameResults'
+import { NewGameButton } from './NewGameButton'
+import styled from 'styled-components'
 
 interface Props {
-    game?: Game
+  game?: Game
 }
 
-export const InactiveGame = ({game}: Props) => {
-    return (
-        <Container>
-            <ButtonContainer>
-                <NewGameButton/>
-            </ButtonContainer>
-            {game ? (
-                <Result>
-                    Solved {game.solved.filter(result => result.accepted).length} out of{' '}
-                    {game.cardCount} correctly
-                </Result>
-            ) : (
-                <NoGame>Sorry, no Game Running.</NoGame>
-            )}
-            {game && <GameResults results={game.solved}/>}
-        </Container>
+export const InactiveGame = ({ game }: Props) => {
+  return (
+    <Container>
+      <ButtonContainer>
+        <NewGameButton />
+      </ButtonContainer>
+      {game ? (
+        <Result>
+          Solved {game.solved.filter(result => result.accepted).length} out of{' '}
+          {game.cardCount} correctly
+        </Result>
+      ) : (
+        <NoGame>Sorry, no Game Running.</NoGame>
+      )}
+      {game && <GameResults results={game.solved} />}
+    </Container>
 
-    )
+  )
 }
 
 

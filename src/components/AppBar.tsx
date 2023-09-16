@@ -1,31 +1,29 @@
-import {useContext} from 'react'
-import {Link} from 'react-router-dom'
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import {AppContext} from '../store/context'
-
+import { AppContext } from '../store/context'
 
 export function AppBar() {
-    const {game} = useContext(AppContext)
+  const { game } = useContext(AppContext)
 
-    const statusText = game
-        ? game.solved.length === game.cardCount
-            ? 'Finished'
-            : `Solve #${game.solved.length + 1}`
-        : 'New Game'
+  const statusText = game
+    ? game.solved.length === game.cardCount
+      ? 'Finished'
+      : `Solve #${game.solved.length + 1}`
+    : 'New Game'
 
-    return (
-        <Bar>
-            <Column textAlign='left'>Mimir</Column>
-            <Column textAlign='center'>
-                <ManageCardsLink to="/">{statusText}</ManageCardsLink>
-            </Column>
-            <Column textAlign='right'>
-                <ManageCardsLink to="/cards">Manage Cards</ManageCardsLink>
-            </Column>
-        </Bar>
-    )
+  return (
+    <Bar>
+      <Column align='left'>Mimir</Column>
+      <Column align='center'>
+        <ManageCardsLink to='/'>{statusText}</ManageCardsLink>
+      </Column>
+      <Column align='right'>
+        <ManageCardsLink to='/cards'>Manage Cards</ManageCardsLink>
+      </Column>
+    </Bar>
+  )
 }
-
 
 const Bar = styled.div`
   display: flex;
@@ -51,14 +49,14 @@ const ManageCardsLink = styled(Link)`
   &:hover {
     color: #73888f;
   }
-`;
+`
 
 interface RowProps {
-    textAlign?: string;
+  align?: string;
 }
 
 const Column = styled.div<RowProps>`
   flex: 1;
-  text-align: ${props => props.textAlign || 'center'};
+  text-align: ${props => props.align || 'center'}; // Use align prop here
   margin: 0 auto;
-`;
+`
