@@ -1,4 +1,4 @@
-import {useContext, useState} from 'react'
+import {ChangeEvent, useContext, useState} from 'react'
 import {AppContext} from '../../store/context'
 import {DeleteGameButton} from './DeleteGameButton'
 import {setAnswer} from '../../api/game'
@@ -10,7 +10,7 @@ export const ActiveGame = () => {
     const {game, dispatch} = useContext(AppContext)
     const [input, setInput] = useState('')
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setInput(e.target.value)
     }
 
@@ -46,9 +46,12 @@ export const ActiveGame = () => {
 
 const Card = styled.div`
   font-family: sans-serif;
+  justify-content: center;
+  width: 70%;
+  padding: 150px 1px;
   text-align: center;
-  padding: 100px 150px;
-  margin: 50px 50px;
+  box-sizing: border-box;
+  margin: 50px;
   border: 1px solid white;
   border-radius: 5px;
   font-size: 50px;

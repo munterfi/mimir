@@ -15,11 +15,11 @@ export function AppBar() {
 
     return (
         <Bar>
-            <Column textAlign={'left'}>Mimir</Column>
-            <Column textAlign={'center'}>
+            <Column textAlign='left'>Mimir</Column>
+            <Column textAlign='center'>
                 <ManageCardsLink to="/">{statusText}</ManageCardsLink>
             </Column>
-            <Column textAlign={'right'}>
+            <Column textAlign='right'>
                 <ManageCardsLink to="/cards">Manage Cards</ManageCardsLink>
             </Column>
         </Bar>
@@ -53,12 +53,12 @@ const ManageCardsLink = styled(Link)`
   }
 `;
 
-export interface RowProps {
+interface RowProps {
     textAlign?: string;
 }
 
 const Column = styled.div<RowProps>`
   flex: 1;
-  text-align: ${p => p.textAlign};
+  text-align: ${props => props.textAlign || 'center'};
   margin: 0 auto;
 `;

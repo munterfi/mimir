@@ -34,7 +34,8 @@ const Table = styled.table`
 `;
 
 const TD = styled.td`
-  padding: 10px 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 `;
 
 const TR = styled.tr`
@@ -45,4 +46,5 @@ const TR = styled.tr`
 
 const THead = styled.thead`
   border-bottom: 3px solid black;
+  text-align: left;
 `;
