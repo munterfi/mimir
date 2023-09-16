@@ -15,7 +15,7 @@ export function AppBar() {
 
     return (
         <Bar>
-            <Column textAlign={'left'}>Mimir alt</Column>
+            <Column textAlign={'left'}>Mimir</Column>
             <Column textAlign={'center'}>
                 <ManageCardsLink to="/">{statusText}</ManageCardsLink>
             </Column>
