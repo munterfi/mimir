@@ -7,7 +7,7 @@ interface Props {
   game?: Game
 }
 
-export const InactiveGame = ({ game }: Props) => {
+export const GameInactive = ({ game }: Props) => {
   return (
     <Container>
       <ButtonContainer>
@@ -23,10 +23,8 @@ export const InactiveGame = ({ game }: Props) => {
       )}
       {game && <GameResults results={game.solved} />}
     </Container>
-
   )
 }
-
 
 const Container = styled.div`
   display: flex;

@@ -17,19 +17,18 @@ export const GameResults = ({ results }: Props) => {
         </tr>
       </THead>
       <tbody>
-      {results.map(result => (
-        <TR key={result.id}>
-          <TD>{result.front}</TD>
-          <TD>{result.back}</TD>
-          <TD>{result.answer}</TD>
-          <TD>{result.accepted ? '✅' : '❌'}</TD>
-        </TR>
-      ))}
+        {results.map(result => (
+          <TR key={result.id}>
+            <TD>{result.front}</TD>
+            <TD>{result.back}</TD>
+            <TD>{result.answer}</TD>
+            <TD>{result.accepted ? '✅' : '❌'}</TD>
+          </TR>
+        ))}
       </tbody>
     </Table>
   )
 }
-
 
 const Table = styled.table`
   border-collapse: collapse;

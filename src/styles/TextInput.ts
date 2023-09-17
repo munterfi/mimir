@@ -6,7 +6,7 @@ interface Props {
 
 export const TextInput = styled.input<Props>`
   border: none;
-  border-bottom: 2px solid ${p => p.warning ? 'red' : 'lightblue'};
+  border-bottom: 2px solid ${p => (p.warning ? 'red' : 'lightblue')};
   font-size: 20px;
   margin: 10px;
 `

@@ -9,8 +9,7 @@ interface AppState extends ApiState {
 
 const initialState: AppState = {
   ...initialApiState,
-  dispatch: () => {
-  }
+  dispatch: () => {},
 }
 
 export const AppContext = createContext<AppState>(initialState)
@@ -24,7 +23,7 @@ export const AppProvider = ({ children }: Props) => {
 
   const store = {
     ...state,
-    dispatch
+    dispatch,
   }
 
   return <AppContext.Provider value={store}>{children}</AppContext.Provider>

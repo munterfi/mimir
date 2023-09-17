@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CustomButton = styled.button`
+export const Button = styled.button`
   text-decoration: none;
   padding: 5px 20px;
   background-color: #6f9ccc;

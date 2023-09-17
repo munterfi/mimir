@@ -1,9 +1,8 @@
 import { ChangeEvent, useContext, useState } from 'react'
-import { addCard, fetchCards, updateCard } from '../../api/cards'
-import { Card } from '../../models/Card'
+import { addCard, updateCard } from '../../api/cards'
 import { AppContext } from '../../store/context'
 import { useNavigate } from 'react-router-dom'
-import { CustomButton } from '../../styles/CustomButton.ts'
+import { Button } from '../../styles/Button.ts'
 import { TextInput } from '../../styles/TextInput.ts'
 
 interface Props {
@@ -47,24 +46,36 @@ export const CardEditor = ({ id, front, back, type }: Props) => {
       return
     }
     if (isAdd) {
-      addCard(inputFront, inputBack)
-      fetchCards().then(cards => dispatch({ type: 'set-cards', cards }))
+      addCard(inputFront, inputBack).then(card =>
+        dispatch({ type: 'add-card', card: card }),
+      )
       setInputFront('')
       setInputBack('')
     } else {
-      const card: Card = { id: id, front: inputFront, back: inputBack }
-      updateCard(card)
-      dispatch({ type: 'update-card', card: card })
+      updateCard({ id: id, front: inputFront, back: inputBack }).then(card =>
+        dispatch({ type: 'update-card', card: card }),
+      )
       navigate('/cards')
     }
   }
 
   return (
     <div>
-      <TextInput value={inputFront} placeholder='Front' onChange={handleInputFront} type='text'
-                 warning={warningFront} />
-      <TextInput value={inputBack} placeholder='Back' onChange={handleInputBack} type='text' warning={warningBack} />
-      <CustomButton onClick={handleButtonClick}>{isAdd ? 'Add' : 'Update'}</CustomButton>
+      <TextInput
+        value={inputFront}
+        placeholder="Front"
+        onChange={handleInputFront}
+        type="text"
+        warning={warningFront}
+      />
+      <TextInput
+        value={inputBack}
+        placeholder="Back"
+        onChange={handleInputBack}
+        type="text"
+        warning={warningBack}
+      />
+      <Button onClick={handleButtonClick}>{isAdd ? 'Add' : 'Update'}</Button>
     </div>
   )
 }

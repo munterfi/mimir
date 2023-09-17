@@ -4,10 +4,10 @@ import { styled } from 'styled-components'
 import { deleteCard } from '../../api/cards'
 import { Card } from '../../models/Card'
 import { AppContext } from '../../store/context'
-import { CustomButton } from '../../styles/CustomButton.ts'
+import { Button } from '../../styles/Button.ts'
 
 interface Props {
-  card: Card;
+  card: Card
 }
 
 export const CardEntry = ({ card }: Props) => {
@@ -26,8 +26,8 @@ export const CardEntry = ({ card }: Props) => {
     <Row>
       <Text>{card.front}</Text>
       <Text>{card.back}</Text>
-      <CustomButton onClick={handleEdit}>{'Edit'}</CustomButton>
-      <CustomButton onClick={handleDelete}>{'Delete'}</CustomButton>
+      <Button onClick={handleEdit}>{'Edit'}</Button>
+      <Button onClick={handleDelete}>{'Delete'}</Button>
     </Row>
   )
 }

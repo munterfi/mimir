@@ -2,11 +2,11 @@ import { ChangeEvent, useContext, useState } from 'react'
 import { AppContext } from '../../store/context'
 import { DeleteGameButton } from './DeleteGameButton'
 import { setAnswer } from '../../api/game'
-import { CustomButton } from '../../styles/CustomButton.ts'
+import { Button } from '../../styles/Button.ts'
 import styled from 'styled-components'
 import { TextInput } from '../../styles/TextInput.ts'
 
-export const ActiveGame = () => {
+export const GameActive = () => {
   const { game, dispatch } = useContext(AppContext)
   const [input, setInput] = useState('')
   const [warning, setWarning] = useState(false)
@@ -39,18 +39,22 @@ export const ActiveGame = () => {
         <DeleteGameButton />
       </GameBar>
       <GameCardContent>
-        <Card>{cardFront}</Card>
+        <CardFront>{cardFront}</CardFront>
         <div>
-          <TextInput value={input} onChange={handleInputChange} type='text' warning={warning} />
-          <CustomButton onClick={handleSubmitButton}>Submit</CustomButton>
+          <TextInput
+            value={input}
+            onChange={handleInputChange}
+            type="text"
+            warning={warning}
+          />
+          <Button onClick={handleSubmitButton}>Submit</Button>
         </div>
       </GameCardContent>
     </div>
   )
 }
 
-
-const Card = styled.div`
+const CardFront = styled.div`
   font-family: sans-serif;
   justify-content: center;
   width: 50%;
@@ -80,5 +84,4 @@ const GameCardContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
 `

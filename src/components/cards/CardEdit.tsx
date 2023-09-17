@@ -8,16 +8,18 @@ export const CardEdit = () => {
   const { id } = useParams<{ id: string }>()
   const { cards } = useContext(AppContext)
   const card = cards.find(c => c.id === id)
-  return (
-    <EditContainer>
-      <CardEditor
-        id={card?.id ?? ''}
-        front={card?.front ?? ''}
-        back={card?.back ?? ''}
-        type='update'
-      />
-    </EditContainer>
-  )
+  if (card) {
+    return (
+      <EditContainer>
+        <CardEditor
+          id={card?.id ?? ''}
+          front={card?.front ?? ''}
+          back={card?.back ?? ''}
+          type="update"
+        />
+      </EditContainer>
+    )
+  }
 }
 
 const EditContainer = styled.div`

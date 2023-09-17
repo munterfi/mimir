@@ -1,13 +1,18 @@
 import { Card } from './Card'
 import { Game } from './Game'
 
+type SetLoadingAction = {
+  type: 'set-loading'
+  value: boolean
+}
+
 type SetCardsAction = {
   type: 'set-cards'
   cards: Card[]
 }
 
 type UpdateCardAction = {
-  type: 'update-card'
+  type: 'add-card' | 'update-card'
   card: Card
 }
 
@@ -26,6 +31,7 @@ type RemoveGameAction = {
 }
 
 export type Action =
+  | SetLoadingAction
   | SetCardsAction
   | UpdateCardAction
   | RemoveCardAction

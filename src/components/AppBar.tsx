@@ -14,13 +14,16 @@ export function AppBar() {
 
   return (
     <Bar>
-      <Column align="left">Mimir</Column>
-      <Column>
-        <ManageCardsLink to='/'>{statusText}</ManageCardsLink>
-      </Column>
-      <Column align="right">
-        <ManageCardsLink to='/cards'>Manage Cards</ManageCardsLink>
-      </Column>
+      <BarColumn align="left">
+        <BarImage src="/src/assets/head.png" alt="Mimir logo" />
+        Mimir
+      </BarColumn>
+      <BarColumn>
+        <BarLink to="/">{statusText}</BarLink>
+      </BarColumn>
+      <BarColumn align="right">
+        <BarLink to="/cards">Manage Cards</BarLink>
+      </BarColumn>
     </Bar>
   )
 }
@@ -38,7 +41,17 @@ const Bar = styled.div`
   gap: 20px;
 `
 
-const ManageCardsLink = styled(Link)`
+interface RowProps {
+  align?: string
+}
+
+const BarColumn = styled.div<RowProps>`
+  flex: 1;
+  text-align: ${props => props.align || 'center'};
+  margin: 0 auto;
+`
+
+const BarLink = styled(Link)`
   text-decoration: none;
   padding: 10px 20px;
   color: white;
@@ -51,12 +64,10 @@ const ManageCardsLink = styled(Link)`
   }
 `
 
-interface RowProps {
-  align?: string;
-}
-
-const Column = styled.div<RowProps>`
-  flex: 1;
-  text-align: ${props => props.align || 'center'}; // Use align prop here
-  margin: 0 auto;
+const BarImage = styled.img`
+  width: 2em;
+  height: 2em;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
 `
