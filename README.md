@@ -1,27 +1,19 @@
-# Mimir APP
+# Mimir App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+[React](https://reactjs.org) based learning cards application, which was created in the course _Web Engineering 3_ of
+the MAS in Software Engineering.
 
-Currently, two official plugins are available:
+The following requirements from the assignment are implemented:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Bind to backend: [mimir-api](https://github.com/mas-se-we3/mimir-api)
+- Router with the `/cards` and `/` routes
+- Use `styled-components`, no `.css` files
+- View, edd and edit cards
+- Start a new game, show progress and keep the state
+- Results overview when game is finished
 
-## Expanding the ESLint configuration
+## Authors
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Alexander Gassmann @gassmannalexander
+- Michael Brunner @Brunner246
+- Merlin Unterfinger @munterfi

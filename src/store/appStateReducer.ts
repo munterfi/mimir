@@ -3,16 +3,26 @@ import { ApiState } from '../models/ApiState'
 
 export function appStateReducer(state: ApiState, action: Action): ApiState {
   switch (action.type) {
+    case 'set-loading':
+      return {
+        ...state,
+        loading: action.value,
+      }
     case 'set-cards':
       return {
         ...state,
         cards: action.cards,
       }
+    case 'add-card':
+      return {
+        ...state,
+        cards: [...state.cards, action.card],
+      }
     case 'update-card':
       return {
         ...state,
         cards: state.cards.map(card =>
-          card.id !== action.card.id ? card : action.card
+          card.id !== action.card.id ? card : action.card,
         ),
       }
     case 'remove-card':
@@ -34,6 +44,7 @@ export function appStateReducer(state: ApiState, action: Action): ApiState {
 }
 
 export const initialApiState: ApiState = {
+  loading: true,
   cards: [],
   game: undefined,
 }

@@ -39,5 +39,7 @@ export const deleteCard = (id: string): void => {
       'Content-Type': 'application/json',
     },
   }
-  fetch(`${apiUrl}/${id}`, options)
+  fetch(`${apiUrl}/${id}`, options).catch(error =>
+    console.error(`Error deleting card with ID ${id}:`, error),
+  )
 }

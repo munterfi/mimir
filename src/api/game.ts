@@ -31,5 +31,7 @@ export const deleteGame = (): void => {
   const options: RequestInit = {
     method: 'DELETE',
   }
-  fetch(apiUrl, options)
+  fetch(apiUrl, options).catch(error =>
+    console.error('Error deleting game:', error),
+  )
 }
