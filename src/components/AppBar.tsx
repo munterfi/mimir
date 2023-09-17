@@ -14,11 +14,11 @@ export function AppBar() {
 
   return (
     <Bar>
-      <Column align='left'>Mimir</Column>
-      <Column align='center'>
+      <Column align="left">Mimir</Column>
+      <Column>
         <ManageCardsLink to='/'>{statusText}</ManageCardsLink>
       </Column>
-      <Column align='right'>
+      <Column align="right">
         <ManageCardsLink to='/cards'>Manage Cards</ManageCardsLink>
       </Column>
     </Bar>

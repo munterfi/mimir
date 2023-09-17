@@ -53,7 +53,7 @@ export const ActiveGame = () => {
 const Card = styled.div`
   font-family: sans-serif;
   justify-content: center;
-  width: 70%;
+  width: 50%;
   padding: 150px 1px;
   text-align: center;
   box-sizing: border-box;
