@@ -14,14 +14,14 @@ export function AppBar() {
 
   return (
     <Bar>
-      <BarColumn align="left">
+      <BarColumn $align="left">
         <BarImage src="/src/assets/head.png" alt="Mimir logo" />
         Mimir
       </BarColumn>
       <BarColumn>
         <BarLink to="/">{statusText}</BarLink>
       </BarColumn>
-      <BarColumn align="right">
+      <BarColumn $align="right">
         <BarLink to="/cards">Manage Cards</BarLink>
       </BarColumn>
     </Bar>
@@ -42,12 +42,12 @@ const Bar = styled.div`
 `
 
 interface RowProps {
-  align?: string
+  $align?: string
 }
 
 const BarColumn = styled.div<RowProps>`
   flex: 1;
-  text-align: ${props => props.align || 'center'};
+  text-align: ${props => props.$align || 'center'};
   margin: 0 auto;
 `
 
