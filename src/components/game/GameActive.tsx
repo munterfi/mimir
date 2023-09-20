@@ -45,7 +45,7 @@ export const GameActive = () => {
             value={input}
             onChange={handleInputChange}
             type="text"
-            warning={warning}
+            $warning={warning}
           />
           <Button onClick={handleSubmitButton}>Submit</Button>
         </div>
