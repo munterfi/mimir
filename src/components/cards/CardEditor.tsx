@@ -66,14 +66,14 @@ export const CardEditor = ({ id, front, back, type }: Props) => {
         placeholder="Front"
         onChange={handleInputFront}
         type="text"
-        warning={warningFront}
+        $warning={warningFront}
       />
       <TextInput
         value={inputBack}
         placeholder="Back"
         onChange={handleInputBack}
         type="text"
-        warning={warningBack}
+        $warning={warningBack}
       />
       <Button onClick={handleButtonClick}>{isAdd ? 'Add' : 'Update'}</Button>
     </div>
