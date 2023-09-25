@@ -8,7 +8,7 @@ The following requirements from the assignment are implemented:
 - Bind to [mimir-api](https://github.com/mas-se-we3/mimir-api) using context and reducer
 - Setup multiple pages with react router with the `/cards` and `/` routes
 - Use `styled-components`, no `.css` files for styling
-- View, edd and edit cards
+- View, add and edit cards
 - Start a new game, show progress and keep the state
 - Results overview when game is finished
 
